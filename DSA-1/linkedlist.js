@@ -353,4 +353,50 @@
 // list.deletemiddle()
 // list.print()
 
+// ---------------------------array to linkedlist---------------------------------------------------
+// class Node{
+//     constructor(value){
+//         this.value=value
+//         this.next=null
+//     }
+// }
+// class linkedlist{
+//     constructor(){
+//         this.head=null
+//         this.size=0
+//     }
+//     prepend(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head=node
+//         }else{
+//             node.next=this.head
+//             this.head=node
+//         }
+//         this.size++
+//     }
+//     array(arr){
+//         arr.forEach((val)=>this.prepend(val))
+//     }
+    
+//     print(){
+//         if(!this.head){
+//             console.log("invalid")
+//         }else{
+//             let curr = this.head
+//             let listvalue=""
+//             while(curr){
+//                 listvalue+=`${curr.value} `
+//                 curr = curr.next
+//             }
+//             console.log(listvalue)
+//         }
+//     }
+// }
 
+// const list = new linkedlist()
+// list.prepend(1)
+// list.prepend(2)
+// list.prepend(3)
+// list.array([11,12,13])
+// list.print()
