@@ -42,8 +42,6 @@
 //         word =""
 //     }
     
-
-    
 //     return recursion(str,word,final,index+1)
 // }
 
@@ -128,6 +126,20 @@
 // console.log(recursion("gopika","a"))
 
 
+// -------------------------------------------
+
+
+// function occ(str,char,count=0,index=0){
+//     if(index==str.length){
+//         return count
+//     }       
+//     count+=str[index].toLowerCase()==char.toLowerCase()?1:0
+//     return occ(str,char,count,index+1)
+// }
+
+// console.log(occ("gAopika","a"))
+
+
 
 
 // ---------------------frequency of a string-----------------------------------------------------
@@ -175,7 +187,22 @@
 
 // --------------------second larget
 
-
+// function sum(arr,i=0,lrg=-Infinity,sec=-Infinity){
+//     if(i==arr.length){
+//         return sec
+//     }
+    
+//     if(arr[i]>lrg){
+//         sec=lrg
+//         lrg=arr[i]
+//     }else if(arr[i]>sec&&arr[i]!==lrg){
+//         sec=arr[i]
+//     }
+//     return sum(arr,i+1,lrg,sec)
+     
+//     }
+    
+//     console.log(sum([1,2,3,6,7,5,4]))
 // ---------------------maximum occuring no in an array
 
 
