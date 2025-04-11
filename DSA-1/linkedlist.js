@@ -43,7 +43,7 @@
 //         const node = new Node(value)
 //         if(index<0||index>this.size){
 //             console.log("invalid")
-//             return
+//             return 
 //         }
 //         if(!this.head){
 //             console.log("empty")
