@@ -36,3 +36,30 @@
 //     return arr
 // }
 // console.log(insertion([5,1,3,2,7,6,3,5,8,9,4]))
+
+
+// ---------------------------------selection sort-------------------------------------------------------------
+
+
+// function selection(arr){
+//     for(let i =0; i<arr.length-1;i++){
+//         let min =i
+//         for(let j=i+1;j<arr.length;j++){
+//             if(arr[j]<arr[min]){
+//                 min=j
+//             }
+//         }
+//         if(min!=i){
+//             let temp = arr[i]
+//             arr[i]=arr[min]
+//             arr[min]=temp
+//         }
+//     }
+//     return arr
+// }
+// console.log(selection([1,5,2,6,3,7,4,78,8,5]))
+
+
+// ------------------------------------------------quick sort -----------------------------------------------
+
+
