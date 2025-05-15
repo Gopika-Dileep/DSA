@@ -52,7 +52,7 @@
 //         if(min!=i){
 //             let temp = arr[i]
 //             arr[i]=arr[min]
-//             arr[min]=temp
+//             arr[min]=temp    
 //         }
 //     }
 //     return arr
@@ -84,4 +84,31 @@
 // console.log(quickSort([1,5,2,6,3,7,4,78,8,5]))
 // // 
 
+
+// -----------------------------------------------merge sort--------------------------------------------------------------
+
+
+// function mergeSort(arr){
+//     if(arr.length<=1){
+//         return arr
+//     }
+//     let midd = Math.floor(arr.length/2)
+//     let left = mergeSort(arr.slice(0,midd))
+//     let right=mergeSort(arr.slice(midd))
+    
+//     return merge(left,right)
+// }
+
+// function merge(left,right){
+//     let sortedArr=[]
+//     while(left.length&&right.length){
+//         if(left[0]<right[0]){
+//             sortedArr.push(left.shift())
+//         }else{
+//             sortedArr.push(right.shift())
+//         }
+//     }
+//     return [...sortedArr,...left,...right]
+// }
+// console.log(mergeSort([1,3,2,5,7,6,3,4]))
 
