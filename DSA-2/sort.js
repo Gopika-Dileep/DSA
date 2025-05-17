@@ -20,6 +20,11 @@
 // console.log(bubble([4,6,7,4,2,1,9]))
 
 
+// timecomplexity
+// O(n^2)  - worst
+// O(n)= best
+
+
 
 // ----------------------------insertion sort-------------------------------------------------------------------
 
@@ -36,6 +41,10 @@
 //     return arr
 // }
 // console.log(insertion([5,1,3,2,7,6,3,5,8,9,4]))
+
+// timecomplexity
+// best case - O(n)
+// worst case -O(n^2)
 
 
 // ---------------------------------selection sort-------------------------------------------------------------
@@ -58,6 +67,10 @@
 //     return arr
 // }
 // console.log(selection([1,5,2,6,3,7,4,78,8,5]))
+
+// timecomplexity
+// worst case-O(n^2)
+// best case-O(n^2)
 
 
 // ------------------------------------------------quick sort -----------------------------------------------
@@ -84,6 +97,10 @@
 // console.log(quickSort([1,5,2,6,3,7,4,78,8,5]))
 // // 
 
+
+// time complexity
+// worst case--O(n^2)
+// bestcase--O(nlogn)
 
 // -----------------------------------------------merge sort--------------------------------------------------------------
 
@@ -112,3 +129,16 @@
 // }
 // console.log(mergeSort([1,3,2,5,7,6,3,4]))
 
+
+// sort this array arr=[{name:"gopika",age=20},{name:shamnad,age:21},{name:shahbin,age:22}] in decending order using merge sort
+// arr1=[3,1,2,4,7,6,5] arr2=[4,3,6,5,2,6,7]  sort this arrray using merge sort
+
+// wortcase---O(nlogn)
+// bestcase--O(nlogn )
+
+
+
+
+// if the array is small or nearly sorted it is best to use inserstion sort 
+
+// if the array is large it is better to use merge sort

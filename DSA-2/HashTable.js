@@ -159,3 +159,74 @@
 // }
 
 // console.log(isAnagram("ollo","olol"))
+
+
+// -------------------------------------------------2nd largest----------------------------------
+
+
+// function least(arr){
+//     let table={}
+//     for(i=0;i<arr.length;i++){
+//         table[arr[i]]=(table[arr[i]]||0)+1
+//     }
+//     let max= -Infinity
+//     let sec=-Infinity
+//     for(let i in table){
+//         if(i>max){
+//             sec=max
+//             max = i
+//             // occur=table[i]
+//         }
+//         if(i>sec&&i!==max){
+//             sec=i
+//         }
+//     }
+//     console.log(sec)
+//     return table
+// }
+
+// console.log(least([9,1,6,5,4,8,1,1,2,2,3,3,3,4,4,5,5,4,6,4,4,7,7,7,7]))
+
+// ------------------------------------max val-----------------------------
+
+
+// function least(arr){
+//     let table={}
+//     for(i=0;i<arr.length;i++){
+//         table[arr[i]]=(table[arr[i]]||0)+1
+//     }
+//     let max= -Infinity
+//     for(let i in table){
+//         if(i>max){
+//             max = i
+//             // occur=table[i]
+//         }
+//     }
+//     console.log(max)
+//     return table
+// }
+
+// console.log(least([9,1,6,5,4,8,1,1,2,2,3,3,3,4,4,5,5,4,6,4,4,7,7,7,7]))
+
+
+// ------------------------------------------least occure-----------------------------------------
+
+
+// function least(arr){
+//     let table={}
+//     for(i=0;i<arr.length;i++){
+//         table[arr[i]]=(table[arr[i]]||0)+1
+//     }
+//     let occur=Infinity
+//     let key
+//     for(let i in table){
+//         if(occur>table[i]){
+//             key =i
+//             occur=table[i]
+//         }
+//     }
+//     console.log(key,occur)
+//     return table
+// }
+
+// console.log(least([1,6,5,4,9,8,1,1,2,2,3,3,3,4,4,5,5,4,6,9,4,4,7,7,7,7]))

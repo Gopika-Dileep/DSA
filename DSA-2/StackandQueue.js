@@ -317,6 +317,46 @@
 // }
 // console.log(reverse("hello world"))
 
+// -------------------------------------using stack reverse array------------------------------------------------------------------
+
+// function split(arr){
+//     let stack = [...arr]
+//     let reverse=[]
+//   while(stack.length>0){
+//         reverse.push(stack.pop())
+//     }
+    
+//     return reverse
+    
+// }
+
+// console.log(split([1,2,3,4,5,6,7]))
+
+// ---------------------------------------valid paranthesis--------------------------------------------------------
+
+
+// function isValid(s){
+//     let stack=[]
+//     let map = {
+//         ')':'(',
+//         '}':'{',
+//         ']':'['
+//     }
+    
+//     for(let char of s){
+//         if(char==='('||char==='{'||char==='['){
+//             stack.push(char)
+//         }else{
+//             let popped=stack.pop()
+//             if(popped!==map[char]){
+//                 return false
+//             }
+//         }
+//     }
+//     return stack.length===0
+// }
+
+// console.log(isValid("[{}()]"))
 
 
 // ---------------------------------------to get the max value using stack ---------------------------------------------------------
@@ -359,3 +399,85 @@
 // console.log(stack)
 // stack.pop()
 // console.log(stack.getMax())
+
+
+
+// -------------------------------circular queue--------------------------------------
+
+
+// class Node{
+//     constructor(value){
+//         this.value=value
+//         this.next=null
+//     }
+// }
+// class Queue{
+//     constructor(){
+//         this.head=null
+//         this.rear=null
+//         this.size=0
+//     }
+//     isEmpty(){
+//         return this.head==null
+//     }
+//     getsize(){
+//         return this.size
+//     }
+//     enqueue(value){
+//         const node = new Node(value)
+//         if(this.isEmpty()){
+//             this.head=node
+//             this.rear=node
+//             this.rear.next=this.head
+//         }else{
+//             node.next=this.head
+//             this.rear.next=node
+//             this.rear=node
+          
+//         }
+//         this.size++
+//     }
+//     dequeue(){
+//         if(this.isEmpty()){
+//             return null
+//         }
+//         const value = this.head.value
+//         if(this.head==this.rear){
+//             this.head=null
+//             this.rear=null
+//         }else{
+//             this.head=this.head.next
+//             this.rear.next=this.head
+//         }
+//         this.size--
+//         return value
+//     }
+    
+//     peek(){
+//         if(this.isEmpty()){
+//             return null
+//         }
+//         return this.head.value
+//     }
+//     display(){
+//         let curr=this.head
+//         let val=''
+//         do{
+//             val+=`${curr.value} `
+//             curr=curr.next
+//         }while(curr!=this.head)
+        
+//         console.log(val)
+//     }
+// }
+
+// const queue=new Queue()
+// queue.enqueue(10)
+// queue.enqueue(20)
+// queue.enqueue(30)
+// queue.display()
+// console.log(queue.dequeue())
+// console.log(queue.peek())
+// console.log(queue.isEmpty())
+// console.log(queue.getsize())
+// queue.display()
