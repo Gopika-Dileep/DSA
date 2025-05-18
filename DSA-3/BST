@@ -78,3 +78,119 @@
 // bst.postOrder(bst.root);
 // console.log("-----------------------")
 // bst.Preorder(bst.root);
+
+
+// --------------------------------------binary search --------------
+
+//  search(value){
+//          let curr = this.root
+//          while(curr!==null){
+//              if(value==curr.value){
+//                  return true
+//              }else if(value<curr.value){
+//                  curr=curr.left
+//              }else{
+//                  curr=curr.right
+//              }
+//          }
+//          return false
+//      }
+
+
+
+        // console.log(bst.search(10))
+        // console.log(bst.search(28))
+
+
+
+// -----------------------------------------------recursive binary search----------------------------------------
+
+
+  
+    //  recsearch(root,value){
+    //      if(root==null){
+    //          return false
+    //      }
+    //      if(root.value==value){
+    //          return true
+    //      }else if(value<root.value){
+    //          return this.recsearch(root.left,value)
+    //      }else{
+    //          return this.recsearch(root.right,value)
+    //      }
+    //  }
+
+
+
+        // console.log(bst.recsearch(bst.root,15))
+        // console.log(bst.recsearch(bst.root,16))
+
+
+
+        // --------------------------------------bft ---levelorder---------------------------------
+
+    //         levelOrder(root){
+    //     const queue=[]
+    //     queue.push(root)
+    //     while(queue.length){
+    //         const curr = queue.shift()
+    //         console.log(curr.value)
+            
+    //         if(curr.left){
+    //             queue.push(curr.left)
+    //         }
+    //         if(curr.right){
+    //             queue.push(curr.right)
+    //         }
+    //     }
+    // }
+
+        //    bst.levelOrder(bst.root)
+
+
+        // ---------------------------------------------max min ------------------------------------------------------
+
+    //         min(){
+    // if(this.root==null){
+    //     return "empty"
+    // }    
+    // let curr=this.root
+    // while(curr.left!==null){
+    //     curr=curr.left
+    // }
+    // return curr.value
+    // }  
+    
+    // max(){
+    //     if(this.root==null){
+    //         return "empty"
+    //     }
+    //     let curr = this.root
+    //     while(curr.right!==null){
+    //         curr = curr.right
+    //     }
+    //     return curr.value
+    // }
+
+
+    // console.log(bst.min())
+
+    // console.log(bst.max())  
+    // 
+
+
+
+    // ------------------------------------------to check is valid------------------------------------------
+
+
+    //  isvalid(node,min=-Infinity,max=Infinity){
+    //     if(node==null){
+    //         return true;
+    //     }
+    //     if(node.value<=min||node.value>=max){
+    //         return false
+    //     }
+    //     return (this.isvalid(node.left,min,node.value)&&this.isvalid(node.right,node.value,max))
+    // }
+
+    // console.log(bst.isvalid(bst.root))
