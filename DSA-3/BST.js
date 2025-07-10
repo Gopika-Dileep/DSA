@@ -577,3 +577,155 @@
 // console.log(bst.findThirdSmallest());
 
 // console.log(bst.isValidBt())
+
+
+
+
+
+
+
+
+// ------------------------------------------------final for qa--------------------------------------------------------
+
+// class Node{
+//     constructor(value){
+//         this.value=value
+//         this.left=null
+//         this.right=null
+//     }
+// }
+// class BinarySearchTree{
+//     constructor(){
+//         this.root=null
+//     }
+//     insert(value){
+//         let node = new Node(value)
+//         if(this.root==null){
+//                 this.root=node
+//                 return
+//         }
+//         let curr= this.root
+//         while(true){
+//             if(value<curr.value){
+//                 if(curr.left==null){
+//                     curr.left=node
+//                     return
+//                 }
+//                 curr=curr.left
+//             }else{
+//                 if(curr.right==null){
+//                     curr.right=node
+//                     return
+//                 }
+//                 curr=curr.right
+//             }
+//         }
+//     }
+//     search(value){
+//         let curr=this.root
+//         while(curr!==null){
+//             if(value==curr.value){
+//                 return true
+//             }else if(value<curr.value){
+//                 curr=curr.left
+//             }else{
+//                 curr=curr.right
+//             }
+//         }
+//         return false
+//     }
+// searchTarget(target){
+//   let curr = this.root
+//   let closest = null
+//   let mindiff=Infinity
+//   while(curr!==null){
+//       let diff=Math.abs(target-curr.value)
+//       if(target!==curr.value&&diff<mindiff){
+//           closest=curr.value
+//           mindiff=diff
+//       }
+//       if(target<curr.value){
+//           curr=curr.left
+//       }else{
+//           curr=curr.right
+//       }
+//   }
+//   return closest!==null?closest:"no closeset element found"
+// }
+//     min(node){
+//         if(this.root==null){
+//             return "empty"
+//         }
+//         let curr=node
+//         while(curr.left!==null){
+//             curr=curr.left
+//         }
+//         return curr.value
+//     }
+//     max(node){
+//         if(this.root==null){
+//             return "empty"
+//         }
+//         let curr=node
+//         while(curr.right!==null){
+//             curr=curr.right
+            
+//         }
+//         return curr.value
+//     }
+//     isValid(node,min=-Infinity,max=Infinity){
+//         if(node==null){
+//             return true
+//         }
+//         if(node.value<=min||node.value>=max){
+//             return false
+//         }
+//         return(
+//             this.isValid(node.left,min,node.value)&&this.isValid(node.right,node.value,max)
+//             )
+//     }
+//     maxDepth(node){
+//         if(node==null){
+//             return 0
+//         }
+//         let leftd=this.maxDepth(node.left)
+//         let rightd=this.maxDepth(node.right)
+//         return Math.max(leftd,rightd)+1
+//     }
+//     inorder(node){
+//         if(node!==null){
+//             this.inorder(node.left)
+//             console.log(node.value)
+//             this.inorder(node.right)
+//         }
+//     }
+//     levelorder(node){
+//         let queue=[]
+//         queue.push(node)
+//         while(queue.length){
+//             let curr = queue.shift()
+//             console.log(curr.value)
+//             if(curr.left){
+//                 queue.push(curr.left)
+//             }
+//             if(curr.right){
+//                 queue.push(curr.right)
+//             }
+//         }
+//     }
+// }
+// let bst= new BinarySearchTree()
+// bst.insert(10)
+// bst.insert(4)
+// bst.insert(12)
+// bst.insert(6)
+// bst.insert(15)
+// bst.insert(7)
+// bst.insert(17)
+// bst.inorder(bst.root)
+// console.log(bst.isValid(bst.root))
+// console.log(bst.min(bst.root))
+// console.log(bst.max(bst.root))
+// console.log(bst.maxDepth(bst.root))
+// bst.levelorder(bst.root)
+// console.log(bst.searchTarget(6))

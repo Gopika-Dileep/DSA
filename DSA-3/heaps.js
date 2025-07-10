@@ -312,3 +312,115 @@
 // console.log(minheap.peek())
 // console.log(minheap.extractmin())
 // console.log(minheap.heap)
+
+
+
+// -----------------------------qns
+
+
+//  qn number 1)  graph dfs
+
+// qn number 2)   -------------------wrong ans 
+// binary search tree ill target thannal athinod closest ayitolla value kand pidikanam
+
+
+// class Node{
+//     constructor(value){
+//         this.value=value
+//         this.left=null
+//         this.right=null
+//     }
+// }
+// class BinarySearchTree{
+//     constructor(){
+//         this.root = null
+//     }
+//     insert(value){
+//         const node = new Node(value)
+//         if(this.root==null){
+//             this.root==node
+//             return
+//         }
+//         let curr = this.root
+//         while(true){
+//             if(curr<curr.value){
+//                 if(curr.left==null){
+//                     curr.left=node
+//                     return
+//                 }
+//                 curr=curr.left
+//             }else{
+//                 if(curr.right==null){
+//                     curr.right=node
+//                     return
+//                 }
+//                 curr=curr.right
+//             }
+//         }
+//     }
+//     search(value){
+//         let curr=this.root
+//         while(curr!==null){
+//             if(value==curr.value){
+//                 let leftv=curr.left.value
+//                 let rightv=curr.right.value
+//                 if((curr.value-leftv)<(rightv-curr.value)){
+//                     return leftv.value
+//                 }else{
+//                     return rightv.value
+//                 }
+//             }else if(value<curr.value){
+//                 curr=curr.left
+//             }else{
+//                 curr=curr.right
+//             }
+//         }
+        
+//     }
+// }
+// let bst = new BinarySearchTree()
+// bst.insert(10)
+// bst.insert(4)
+// bst.insert(15)
+// bst.insert(23)
+// bst.insert(12)
+// bst.insert(6)
+// bst.insert(1)
+// console.log(bst.search(4))
+
+
+// qn number 3)     -----------------------trie autocomplete
+// qn number 4)            ----------------wrong ans
+// heap sort 
+
+// function hepify(arr,n,i){
+//     let largest=i
+//     let left=2*i+1
+//     let right=2*i+2
+//     if(left<n&&arr[left]>arr[largest]){
+//         largest=left
+//     }
+//     if(right<n&&arr[right]>arr[largest]){
+//         largest=right
+//     }
+//     if(largest!==i){
+//         [arr[i],arr[largest]]=[arr[largest],arr[i]]
+//          hepify(arr,n,largest)
+//     }
+// }
+// function heapsort(arr){
+//     n=arr.length
+//     for(let i =Math.floor((n/2)-1);i>=0;i--){
+//         hepify(arr,n,i)
+//     }
+//     for(let i =n-1;i>0;i--){
+//         [arr[i],arr[n]]=[arr[n],arr[i]]
+//         hepify(arr,i,0)
+//     }
+// }
+
+// let arr =[1,4,10,25,12,8,7]
+// heapsort(arr)
+// console.log(arr)
+
+

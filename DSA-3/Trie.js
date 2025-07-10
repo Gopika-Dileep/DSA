@@ -14,7 +14,7 @@
 //         let node = this.root;
 
 //         for(let char of word) {
-//             if(!node.children[char]) {le t
+//             if(!node.children[char]) {
 //                 node.children[char] = new TireNode();
 //             }
 //             node = node.children[char];
