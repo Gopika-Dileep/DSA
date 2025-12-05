@@ -69,7 +69,7 @@
 // console.log(selection([1,5,2,6,3,7,4,78,8,5]))
 
 // timecomplexity
-// worst case-O(n^2)
+// worst case -O(n^2)
 // best case-O(n^2)
 
 

@@ -6,7 +6,7 @@
 //     }
 // }
 
-// class BinarySearchTree {
+// class BinarySearchTree { 
 //     constructor() {
 //         this.root = null;
 //     }
@@ -26,7 +26,7 @@
 //                 if(current.left === null) {
 //                     current.left = node;
 //                     return;
-//                 }
+//                  }
 //                 current = current.left;
 //             } else {
 //                 if(current.right === null) {
@@ -76,7 +76,7 @@
 // bst.inorder(bst.root);
 // console.log("-----------------------")
 // bst.postOrder(bst.root);
-// console.log("-----------------------")
+// console.log("-----------------------")`  l
 // bst.Preorder(bst.root);
 
 

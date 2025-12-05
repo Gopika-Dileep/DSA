@@ -230,3 +230,16 @@
 // }
 
 // console.log(least([1,6,5,4,9,8,1,1,2,2,3,3,3,4,4,5,5,4,6,9,4,4,7,7,7,7]))
+
+
+
+const express = require('express');
+let app = express();
+
+app.get('/', (req, res) => {
+    res.send('Hellooo......');
+});
+
+app.listen(3000, () => {
+    console.log('server is runing....')
+})

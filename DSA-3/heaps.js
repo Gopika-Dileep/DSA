@@ -6,13 +6,13 @@
 //         this.heap = [];
 //     }
 
-//     getParentIndex(index) {
+//     getParentIndex(index) {  
 //         return Math.floor((index -1)/2);
 //     }
 
 //     getLeftChildIndex(index) {
 //         return 2 * index + 1;
-//     }
+//     } 
 
 //     getRightChildIndex(index) {
 //         return 2 * index + 2;
@@ -357,7 +357,7 @@
 //                 curr=curr.right
 //             }
 //         }
-//     }
+//     }     
 //     search(value){
 //         let curr=this.root
 //         while(curr!==null){

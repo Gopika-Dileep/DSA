@@ -130,7 +130,7 @@
 //         return this.size
 //     }
 //     push(value){
-//         const node =  new Node(value)
+//           const node =  new Node(value)
 //         node.next=this.head
 //         this.head=node
 //         this.size++
@@ -315,7 +315,48 @@
 //     }
 //     return final
 // }
-// console.log(reverse("hello world"))
+// console.log(reverse("hello world"))  //"world hello"
+
+// --------------------------------------------
+// function reverseString(s) {
+//     let stack = []
+//     for (let ch of s) {
+//         stack.push(ch)
+//     }
+//     let result = ""
+//     while (stack.length) {
+//         result += stack.pop()
+//     }
+//     return result
+// }
+// console.log(reverseString("hello world")) // "dlrow olleh"
+
+
+// -------------------------------------------
+
+// function reverseWords(s) {
+//     let words = s.split(' ')
+//     let result = []
+
+//     for (let word of words) {
+//         let stack = []
+//         for (let ch of word) {
+//             stack.push(ch)
+//         }
+
+//         let reversedWord = ''
+//         while (stack.length) {
+//             reversedWord += stack.pop()
+//         }
+
+//         result.push(reversedWord)
+//     }
+
+//     return result.join(' ')
+// }
+
+// console.log(reverseWords("hello world")) // "olleh dlrow"
+
 
 // -------------------------------------using stack reverse array------------------------------------------------------------------
 
@@ -331,6 +372,50 @@
 // }
 
 // console.log(split([1,2,3,4,5,6,7]))
+
+
+
+
+// ----------------------------------sort array using temp stack-------------------------------------------------------------------
+
+
+// function sortStack(stack) {
+//     let newStack = [];
+
+//     while(stack.length) {
+//         let current = stack.pop();
+
+//         while(newStack.length && newStack[newStack.length -1] < current) {
+//             stack.push(newStack.pop())
+//         }
+//         newStack.push(current);
+//     }
+//     while(newStack.length) {
+//         stack.push(newStack.pop());
+//     }
+//     return stack;
+// }
+
+// console.log(sortStack([5,3,7,8,9,3,2,1,0]))
+
+// -----------------------------------Insert into Sorted Stack---------------------------------
+
+// let stack =[1,5,6]
+// let num = 3
+// function insert(stack,x){
+//     let temp =[]
+//     while(stack.length&&stack[stack.length-1]>x){
+//         temp.push(stack.pop())
+//     }
+//     stack.push(3)
+//     while(temp.length){
+//         stack.push(temp.pop())
+//     }
+//     return stack
+// }
+
+// console.log(insert(stack,num))
+
 
 // ---------------------------------------valid paranthesis--------------------------------------------------------
 

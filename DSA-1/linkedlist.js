@@ -98,13 +98,34 @@
 //                     node.next=curr.next
 //                     curr.next=node
 //                     this.size++
-//                     return
+//                     return 
 //                 }
 //                 curr=curr.next
 //             }
             
+
 //         }
 //     }
+
+// this method will actually give the same effect of insert a value at index 3
+
+// -----------------------------actually this is the currect way to replace the target value
+
+// insert (value,target){
+//     if(this.head.value == target){
+//         this.prepend(value)
+//     }else{
+//         let curr= this.head
+//         while(curr){
+//             if(curr.value==target){
+//                 curr.value=value
+//             }
+//             curr= curr.next
+//         }
+//     }
+// }
+
+
 //     // -------------------insert value after specific index-----------------
     
 //     insertval2(value,target){
@@ -173,7 +194,7 @@
 //             this.size--
 //         }else{
 //             let curr=this.head
-//             while(curr.next){
+//             while(curr){
 //                 if(curr.next.value==value){
 //                       curr.next=curr.next.next
 //             this.size--

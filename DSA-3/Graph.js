@@ -21,7 +21,7 @@
 //         this.adjecencyList[vertex1].add(vertex2);
 //         this.adjecencyList[vertex2].add(vertex1);
 //     }
-    
+
 //     hasEdge(vertex1, vertex2) {
 //         return  this.adjecencyList[vertex1].has(vertex2) &&  this.adjecencyList[vertex2].has(vertex1);
 //     }
@@ -102,7 +102,6 @@
 // // graph.deleteEdge("D", "B")
 // // console.log(graph.hasEdge("D", "B"))
 // console.log(graph.adjecencyList);
-
 // graph.dfs("A")
 // graph.bfs("A")
 
