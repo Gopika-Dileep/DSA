@@ -374,6 +374,20 @@
 // console.log(split([1,2,3,4,5,6,7]))
 
 
+// -----------------------------------------
+
+// function reverse(arr){
+//     let stack =[]
+//     for(let val of arr){
+//         stack.push(val)
+//     }
+   
+//     for(let i = 0 ; i<arr.length;i++){
+//         arr[i] = stack.pop()
+//     }
+//     return arr
+// }
+// console.log(reverse([1,2,3,4,5,6]))
 
 
 // ----------------------------------sort array using temp stack-------------------------------------------------------------------
