@@ -1,0 +1,1123 @@
+
+
+class Node{
+    constructor(value){
+        this.value = value
+        this.next = null
+    }
+}
+class linkedlist{
+    constructor(){
+        this.head = null
+        this.size = 0
+    }
+    prepend(value){
+        const node = new Node(value)
+        if(!this.head){
+            this.head = node
+        }else{
+            node.next = this.head
+            this.head = node
+        }
+        this.size++
+    }
+    append(value){
+        const node = new Node(value)
+        if(!this.head){
+            this.head = node
+        }else{
+            let curr = this.head
+          while(curr.next){
+              curr = curr.next
+          }
+          curr.next = node
+        }
+        this.size++
+    }
+    search(value){
+        if(!this.head){
+            return -1
+        }
+        let i = 0
+        let curr = this.head
+        while(curr){
+            if(curr.value== value){
+                return i
+            }
+            curr=curr.next
+            i++
+        }
+        return -1
+    }
+    reverse(){
+        let prev = null
+        let curr = this.head
+        while(curr){
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr= next
+        }
+        this.head = prev
+    }
+    deletemiddle(){
+        let slow = this.head
+        let fast = this.head
+        let prev = null
+        while(fast && fast.next){
+            prev = slow
+            slow = slow.next
+            fast= fast.next.next
+        }
+        prev.next = slow.next
+        this.size--
+    }
+    findmiddle(){
+        if(!this.head){
+            return null
+        }
+        let slow = this.head
+        let fast = this.head
+        while(fast && fast.next){
+            slow = slow.next
+            fast = fast.next.next
+        }
+        return slow.value
+    }
+    array(arr){
+        arr.forEach((val)=>this.prepend(val))
+    }
+     print() {
+        if (!this.head) {
+            console.log("empty")
+        } else {
+            let curr = this.head
+            let listvalue = ""
+            while (curr) {
+                listvalue += `${curr.value} `
+                curr = curr.next
+            }
+            console.log(listvalue)
+        }
+    }
+
+}
+
+const list = new linkedlist()
+list.prepend(15)
+list.prepend(10)
+list.prepend(5)
+list.append(20)
+list.append(25)
+list.print()
+console.log(list.search(10))
+list.reverse()
+list.print()
+console.log(list.findmiddle())
+list.deletemiddle()
+list.reverse()
+list.print()
+list.array([3,2,1])
+list.print()
+
+
+
+
+
+
+
+
+
+
+
+// ============================set 1
+
+
+// 1. Delete the first node (deleteHead)
+
+deleteHead() {
+    if (!this.head) return null;
+    this.head = this.head.next;
+    this.size--;
+}
+
+
+// 2. Delete the last node (deleteTail)
+
+deleteTail() {
+    if (!this.head) return null;
+
+    // If only one node
+    if (!this.head.next) {
+        this.head = null;
+        this.size--;
+        return;
+    }
+
+    let curr = this.head;
+    let prev = null;
+
+    while (curr.next) {
+        prev = curr;
+        curr = curr.next;
+    }
+
+    prev.next = null;
+    this.size--;
+}
+
+
+// 3. Get value at index (getAtIndex)
+
+getAtIndex(index) {
+    if (index < 0 || index >= this.size) return null;
+
+    let curr = this.head;
+    let i = 0;
+
+    while (i < index) {
+        curr = curr.next;
+        i++;
+    }
+    return curr.value;
+}
+
+
+// 4. Insert at index (insertAtIndex)
+
+insertAtIndex(index, value) {
+    if (index < 0 || index > this.size) return;
+
+    const node = new Node(value);
+
+    if (index === 0) {
+        this.prepend(value);
+        return;
+    }
+
+    let curr = this.head;
+    let i = 0;
+
+    while (i < index - 1) {
+        curr = curr.next;
+        i++;
+    }
+
+    node.next = curr.next;
+    curr.next = node;
+    this.size++;
+}
+
+// Convert LinkedList → Array
+
+toArray() {
+    let arr = [];
+    let curr = this.head;
+
+    while (curr) {
+        arr.push(curr.value);
+        curr = curr.next;
+    }
+
+    return arr;
+}
+
+// 6. Count occurrences of a value
+
+countOccurrences(value) {
+    let count = 0;
+    let curr = this.head;
+
+    while (curr) {
+        if (curr.value === value) count++;
+        curr = curr.next;
+    }
+
+    return count;
+}
+
+// 7. Remove duplicates (unsorted list)
+
+removeDuplicates() {
+    let seen = new Set();
+    let curr = this.head;
+    let prev = null;
+
+    while (curr) {
+        if (seen.has(curr.value)) {
+            prev.next = curr.next;
+            this.size--;
+        } else {
+            seen.add(curr.value);
+            prev = curr;
+        }
+        curr = curr.next;
+    }
+}
+
+// 8. Check if the list is sorted
+
+isSorted() {
+    if (!this.head) return true;
+
+    let curr = this.head;
+
+    while (curr.next) {
+        if (curr.value > curr.next.value) return false;
+        curr = curr.next;
+    }
+
+    return true;
+}
+
+// 9. Find nth node from end (two pointer method)
+
+nthFromEnd(n) {
+    let fast = this.head;
+    let slow = this.head;
+
+    // Move fast n steps
+    for (let i = 0; i < n; i++) {
+        if (!fast) return null;
+        fast = fast.next;
+    }
+
+    // Move both until fast reaches end
+    while (fast) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+
+    return slow.value;
+}
+
+
+
+// 10. Swap two nodes by value
+
+swapNodes(val1, val2) {
+    if (val1 === val2) return;
+
+    let prev1 = null, curr1 = this.head;
+    let prev2 = null, curr2 = this.head;
+
+    // Find val1
+    while (curr1 && curr1.value !== val1) {
+        prev1 = curr1;
+        curr1 = curr1.next;
+    }
+
+    // Find val2
+    while (curr2 && curr2.value !== val2) {
+        prev2 = curr2;
+        curr2 = curr2.next;
+    }
+
+    if (!curr1 || !curr2) return;
+
+    // If val1 is not head
+    if (prev1) prev1.next = curr2;
+    else this.head = curr2;
+
+    // If val2 is not head
+    if (prev2) prev2.next = curr1;
+    else this.head = curr1;
+
+    // Swap next pointers
+    let temp = curr1.next;
+    curr1.next = curr2.next;
+    curr2.next = temp;
+}
+
+
+// ===============set 2
+
+//  1. Detect a Cycle in Linked List (Floyd’s Algorithm)
+
+hasCycle() {
+    let slow = this.head;
+    let fast = this.head;
+
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+
+        if (slow === fast) return true;
+    }
+    return false;
+}
+
+
+
+// 2. Remove Cycle in Linked List
+
+removeCycle() {
+    let slow = this.head;
+    let fast = this.head;
+
+    // Step 1: Detect loop
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+
+        if (slow === fast) break;
+    }
+
+    // No cycle
+    if (!fast || !fast.next) return;
+
+    // Step 2: Move slow to head
+    slow = this.head;
+
+    // Step 3: Find the start of loop
+    while (slow !== fast) {
+        slow = slow.next;
+        fast = fast.next;
+    }
+
+    // Step 4: Find the last node of the loop
+    let ptr = slow;
+    while (ptr.next !== slow) {
+        ptr = ptr.next;
+    }
+
+    ptr.next = null;  // break the loop
+}
+
+
+
+// 3. Check if Linked List is Palindrome
+
+isPalindrome() {
+    let arr = [];
+    let curr = this.head;
+
+    while (curr) {
+        arr.push(curr.value);
+        curr = curr.next;
+    }
+
+    let i = 0, j = arr.length - 1;
+
+    while (i < j) {
+        if (arr[i] !== arr[j]) return false;
+        i++;
+        j--;
+    }
+    return true;
+}
+
+
+
+// 4. Merge Two Sorted Linked Lists
+
+merge(l1, l2) {
+    let dummy = new Node(0);
+    let curr = dummy;
+
+    while (l1 && l2) {
+        if (l1.value < l2.value) {
+            curr.next = l1;
+            l1 = l1.next;
+        } else {
+            curr.next = l2;
+            l2 = l2.next;
+        }
+        curr = curr.next;
+    }
+
+    curr.next = l1 || l2;
+    return dummy.next;
+}
+
+
+
+// 5. Delete Nth Node From End (One Pass / Two Pointers)
+
+deleteNthFromEnd(n) {
+    let dummy = new Node(0);
+    dummy.next = this.head;
+
+    let slow = dummy;
+    let fast = dummy;
+
+    // Move fast n+1 steps
+    for (let i = 0; i <= n; i++) {
+        if (!fast) return;
+        fast = fast.next;
+    }
+
+    // Move both until fast reaches end
+    while (fast) {
+        slow = slow.next;
+        fast = fast.next;
+    }
+
+    slow.next = slow.next.next;
+    this.head = dummy.next;
+    this.size--;
+}
+
+
+
+// 6. Rotate Linked List (Right Rotation)
+
+rotate(k) {
+    if (!this.head || k === 0) return;
+
+    // compute length
+    let len = 1;
+    let tail = this.head;
+    while (tail.next) {
+        tail = tail.next;
+        len++;
+    }
+
+    k = k % len;
+    if (k === 0) return;
+
+    // make it circular
+    tail.next = this.head;
+
+    // find new tail: len - k
+    let steps = len - k;
+    let newTail = this.head;
+
+    while (steps > 1) {
+        newTail = newTail.next;
+        steps--;
+    }
+
+    this.head = newTail.next;
+    newTail.next = null;
+}
+
+
+
+// 7. Remove All Nodes With a Given Value
+
+removeAll(value) {
+    // Remove from head
+    while (this.head && this.head.value === value) {
+        this.head = this.head.next;
+        this.size--;
+    }
+
+    let curr = this.head;
+    while (curr && curr.next) {
+        if (curr.next.value === value) {
+            curr.next = curr.next.next;
+            this.size--;
+        } else {
+            curr = curr.next;
+        }
+    }
+}
+
+
+
+
+
+// 8. Add Two Numbers Represented as Linked Lists
+
+addTwoNumbers(l1, l2) {
+    let dummy = new Node(0);
+    let curr = dummy;
+    let carry = 0;
+
+    while (l1 || l2 || carry) {
+        let sum = carry;
+
+        if (l1) {
+            sum += l1.value;
+            l1 = l1.next;
+        }
+
+        if (l2) {
+            sum += l2.value;
+            l2 = l2.next;
+        }
+
+        carry = Math.floor(sum / 10);
+        curr.next = new Node(sum % 10);
+        curr = curr.next;
+    }
+
+    return dummy.next;
+}
+
+
+
+
+// 9. Sort Linked List (Merge Sort Algorithm)
+
+sortList(head = this.head) {
+    if (!head || !head.next) return head;
+
+    // find middle
+    let slow = head;
+    let fast = head;
+
+    while (fast.next && fast.next.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    let mid = slow.next;
+    slow.next = null;
+
+    let left = this.sortList(head);
+    let right = this.sortList(mid);
+
+    return this.merge(left, right);
+}
+
+
+
+
+// 10. Partition Linked List Around Value X
+
+partition(x) {
+    let smallerHead = new Node(0);
+    let greaterHead = new Node(0);
+
+    let small = smallerHead;
+    let big = greaterHead;
+
+    let curr = this.head;
+
+    while (curr) {
+        if (curr.value < x) {
+            small.next = curr;
+            small = small.next;
+        } else {
+            big.next = curr;
+            big = big.next;
+        }
+        curr = curr.next;
+    }
+
+    // connect both lists
+    big.next = null;
+    small.next = greaterHead.next;
+
+    this.head = smallerHead.next;
+}
+
+
+
+
+
+// =======================set 3
+
+// 1. Flatten a Multilevel Linked List
+
+flatten(head = this.head) {
+    if (!head) return null;
+
+    let stack = [];
+    let curr = head;
+
+    while (curr) {
+        if (curr.child) {
+            if (curr.next) stack.push(curr.next);
+
+            curr.next = curr.child;
+            curr.child = null;
+        }
+
+        if (!curr.next && stack.length > 0) {
+            curr.next = stack.pop();
+        }
+
+        curr = curr.next;
+    }
+
+    return head;
+}
+
+
+
+
+// 2. Reorder List
+
+reorder() {
+    if (!this.head || !this.head.next) return;
+
+    // Step 1: find middle
+    let slow = this.head, fast = this.head;
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    // Step 2: reverse from slow
+    let prev = null, curr = slow;
+    while (curr) {
+        let next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+    }
+
+    // Step 3: merge first + reversed
+    let first = this.head;
+    let second = prev;
+
+    while (second.next) {
+        let temp1 = first.next;
+        let temp2 = second.next;
+
+        first.next = second;
+        second.next = temp1;
+
+        first = temp1;
+        second = temp2;
+    }
+}
+
+
+
+
+// 3. Clone a List With Random Pointers
+
+cloneRandomList(head) {
+    if (!head) return null;
+
+    let curr = head;
+
+    // Step 1: Insert cloned nodes
+    while (curr) {
+        let copy = new Node(curr.value);
+        copy.next = curr.next;
+        curr.next = copy;
+        curr = copy.next;
+    }
+
+    // Step 2: Assign random pointers
+    curr = head;
+    while (curr) {
+        if (curr.random) {
+            curr.next.random = curr.random.next;
+        }
+        curr = curr.next.next;
+    }
+
+    // Step 3: Separate original and cloned list
+    curr = head;
+    let cloneHead = head.next;
+
+    while (curr) {
+        let copy = curr.next;
+        curr.next = copy.next;
+
+        if (copy.next) copy.next = copy.next.next;
+        curr = curr.next;
+    }
+
+    return cloneHead;
+}
+
+
+
+// 4. Reverse Nodes in k-Groups
+
+reverseKGroup(head, k) {
+    if (!head || k === 1) return head;
+
+    let dummy = new Node(0);
+    dummy.next = head;
+
+    let prev = dummy, end = dummy;
+
+    while (true) {
+        for (let i = 0; i < k && end; i++) end = end.next;
+        if (!end) break;
+
+        let start = prev.next;
+        let next = end.next;
+
+        end.next = null;
+
+        prev.next = this.reverseList(start);
+        start.next = next;
+
+        prev = start;
+        end = prev;
+    }
+
+    return dummy.next;
+}
+
+// helper
+reverseList(head) {
+    let prev = null, curr = head;
+
+    while (curr) {
+        let next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+    }
+
+    return prev;
+}
+
+
+
+// 5. Find Intersection of Two Linked Lists
+
+getIntersection(headA, headB) {
+    if (!headA || !headB) return null;
+
+    let a = headA;
+    let b = headB;
+
+    while (a !== b) {
+        a = a ? a.next : headB;
+        b = b ? b.next : headA;
+    }
+
+    return a;  // or null
+
+}
+
+
+
+
+// 6. Remove Duplicates from a Sorted Linked List (LeetCode #83)
+
+removeSortedDuplicates() {
+    let curr = this.head;
+
+    while (curr && curr.next) {
+        if (curr.value === curr.next.value) {
+            curr.next = curr.next.next;
+            this.size--;
+        } else {
+            curr = curr.next;
+        }
+    }
+}
+
+
+
+
+// 7. Remove Duplicates from Unsorted List Without Extra Space
+
+removeDupNoBuffer() {
+    let curr = this.head;
+
+    while (curr) {
+        let runner = curr;
+
+        while (runner.next) {
+            if (runner.next.value === curr.value) {
+                runner.next = runner.next.next;
+                this.size--;
+            } else {
+                runner = runner.next;
+            }
+        }
+
+        curr = curr.next;
+    }
+}
+
+
+
+
+// 8. Pairwise Swap Nodes
+
+pairwiseSwap() {
+    let dummy = new Node(0);
+    dummy.next = this.head;
+
+    let curr = dummy;
+
+    while (curr.next && curr.next.next) {
+        let first = curr.next;
+        let second = curr.next.next;
+
+        first.next = second.next;
+        second.next = first;
+        curr.next = second;
+
+        curr = curr.next.next;
+    }
+
+    this.head = dummy.next;
+}
+
+
+
+
+// 9. Delete Middle Node (O(1) space)
+
+deleteMiddleNode() {
+    if (!this.head || !this.head.next) {
+        this.head = null;
+        return;
+    }
+
+    let slow = this.head;
+    let fast = this.head;
+    let prev = null;
+
+    while (fast && fast.next) {
+        prev = slow;
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    prev.next = slow.next;
+    this.size--;
+}
+
+
+
+
+// 10. Odd-Even List
+
+oddEvenList() {
+    if (!this.head) return;
+
+    let odd = this.head;
+    let even = this.head.next;
+    let evenHead = even;
+
+    while (even && even.next) {
+        odd.next = even.next;
+        odd = odd.next;
+
+        even.next = odd.next;
+        even = even.next;
+    }
+
+    odd.next = evenHead;
+}
+
+
+
+
+// =============================set 4
+
+
+
+
+
+// ===========================application level random qns 
+
+// Q1. Find the length of the linked list
+
+length() {
+    let count = 0;
+    let curr = this.head;
+
+    while (curr) {
+        count++;
+        curr = curr.next;
+    }
+    return count;
+}
+
+
+
+
+
+// Q2. Count how many times a value appears
+
+countValue(value) {
+    let count = 0;
+    let curr = this.head;
+
+    while (curr) {
+        if (curr.value === value) count++;
+        curr = curr.next;
+    }
+    return count;
+}
+
+
+
+
+// Q3. Remove duplicates (UNSORTED linked list)
+
+removeDuplicates() {
+    let curr = this.head;
+    let set = new Set();
+    let prev = null;
+
+    while (curr) {
+        if (set.has(curr.value)) {
+            prev.next = curr.next;
+            this.size--;
+        } else {
+            set.add(curr.value);
+            prev = curr;
+        }
+        curr = curr.next;
+    }
+}
+
+
+
+
+
+// Q4. Check if the linked list is sorted
+
+isSorted() {
+    if (!this.head || !this.head.next) return true;
+
+    let curr = this.head;
+
+    while (curr.next) {
+        if (curr.value > curr.next.value) {
+            return false;
+        }
+        curr = curr.next;
+    }
+
+    return true;
+}
+
+
+
+
+
+// Q5. Delete a node by value
+
+deleteByValue(value) {
+    if (!this.head) return;
+
+    if (this.head.value === value) {
+        this.head = this.head.next;
+        this.size--;
+        return;
+    }
+
+    let curr = this.head;
+    while (curr.next) {
+        if (curr.next.value === value) {
+            curr.next = curr.next.next;
+            this.size--;
+            return;
+        }
+        curr = curr.next;
+    }
+}
+
+
+
+
+
+// Q6. Find the Nth node from the END
+
+nthFromEnd(n) {
+    let first = this.head;
+    let second = this.head;
+
+    while (n--) {
+        if (!first) return null;
+        first = first.next;
+    }
+
+    while (first) {
+        first = first.next;
+        second = second.next;
+    }
+
+    return second.value;
+}
+
+
+
+
+// Q7. Check if the linked list is palindrome
+
+isPalindrome() {
+    let arr = [];
+    let curr = this.head;
+
+    while (curr) {
+        arr.push(curr.value);
+        curr = curr.next;
+    }
+
+    let i = 0, j = arr.length - 1;
+
+    while (i < j) {
+        if (arr[i] !== arr[j]) return false;
+        i++; j--;
+    }
+
+    return true;
+}
+
+
+
+
+
+
+// Q8. Create a linked list from an array (proper order)
+
+fromArray(arr) {
+    arr.forEach(value => this.append(value)); // append keeps order
+}
+
+
+
+
+// Q9. Split linked list into two halves
+
+splitInHalf() {
+    if (!this.head) return [null, null];
+
+    let slow = this.head;
+    let fast = this.head;
+
+    while (fast.next && fast.next.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    let secondHalf = slow.next;
+    slow.next = null;
+
+    return [this.head, secondHalf];
+}
+
+
+
+
+
+
+// Q10. Rotate linked list by k
+
+rotate(k) {
+    if (!this.head || k === 0) return;
+
+    let curr = this.head;
+    let length = 1;
+
+    while (curr.next) {
+        curr = curr.next;
+        length++;
+    }
+
+    curr.next = this.head; // make it circular
+
+    k = k % length;
+    let stepsToNewHead = length - k;
+
+    let newTail = curr;
+    let newHead = this.head;
+
+    while (stepsToNewHead--) {
+        newTail = newHead;
+        newHead = newHead.next;
+    }
+
+    newTail.next = null;
+    this.head = newHead;
+}
