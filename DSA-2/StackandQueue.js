@@ -580,3 +580,110 @@
 // console.log(queue.isEmpty())
 // console.log(queue.getsize())
 // queue.display()
+
+
+
+// --------------------------------------stack using queue----------------------------------------
+
+// class StackUsingQueue {
+//     constructor(){
+//         this.queue = []
+//     }
+
+//     isEmpty(){
+//         return this.queue.length === 0
+//     }
+
+//     size(){
+//         return this.queue.length
+//     }
+
+//     push(value){
+//         this.queue.push(value)
+
+//         // rotate elements
+//         for(let i = 0; i < this.queue.length - 1; i++){
+//             this.queue.push(this.queue.shift())
+//         }
+//     }
+
+//     pop(){
+//         if(this.isEmpty()){
+//             return null
+//         }
+//         return this.queue.shift()
+//     }
+
+//     peek(){
+//         if(this.isEmpty()){
+//             return null
+//         }
+//         return this.queue[0]
+//     }
+
+//     print(){
+//         console.log(this.queue.toString())
+//     }
+// }
+
+// const stack = new StackUsingQueue()
+
+// stack.push(10)
+// stack.push(20)
+// stack.push(30)
+
+// stack.print()
+
+// console.log(stack.pop())
+// console.log(stack.peek())
+// stack.print()
+
+
+// --------------------------------------queue using stack ------------------------------
+
+// class QueueUsingStack {
+//     constructor(){
+//         this.stack1 = []
+//         this.stack2 = []
+//     }
+
+//     enqueue(value){
+//         this.stack1.push(value)
+//     }
+
+//     dequeue(){
+//         if(this.stack2.length === 0){
+//             while(this.stack1.length > 0){
+//                 this.stack2.push(this.stack1.pop())
+//             }
+//         }
+//         return this.stack2.pop()
+//     }
+
+//     peek(){
+//         if(this.stack2.length === 0){
+//             while(this.stack1.length > 0){
+//                 this.stack2.push(this.stack1.pop())
+//             }
+//         }
+//         return this.stack2[this.stack2.length - 1]
+//     }
+
+//     print(){
+//         const queue = [...this.stack2].reverse().concat(this.stack1)
+//         console.log(queue)
+//     }
+// }
+
+// const queue = new QueueUsingStack()
+
+// queue.enqueue(10)
+// queue.enqueue(20)
+// queue.enqueue(30)
+
+// queue.print()
+
+// console.log(queue.dequeue())
+// console.log(queue.peek())
+
+// queue.print()
