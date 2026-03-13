@@ -288,8 +288,8 @@
 // console.log(queue.getSize())
 // queue.print()
 
-// -----------------------------using stack reverse the string--------------------------------------------------------------
-
+// -----------------------------using stack reverse the string(no need to refer this string reverse)--------------------------------------------------------------
+ 
 // function split(s){
 //     let stackstring=s.split(' ')
 //     let newstring=""
@@ -317,6 +317,8 @@
 // }
 // console.log(reverse("hello world"))  //"world hello"
 
+
+// -----------------------------using stack reverse the string(refer the below two code for reverse string)-------------------------------------------------------------
 // --------------------------------------------
 // function reverseString(s) {
 //     let stack = []
